@@ -1,0 +1,19 @@
+import csv
+f=open('seoul.csv',encoding='cp949')
+data=csv.reader(f)
+next(data)
+aug=[]
+jan=[]
+
+for row in data:
+    month=row[0].split('.')[1]
+    if row[-1]!='': 
+        if month=='8':
+            aug.append(float(row[-1]))
+        if month=='1':
+            jan.append(float(row[-1]))
+            
+import matplotlib.pyplot as plt
+plt.boxplot(aug)
+plt.boxplot(jan)
+plt.show()
