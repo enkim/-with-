@@ -1,0 +1,15 @@
+import matplotlib.pyplot as plt
+import random
+result=[]
+for i in range(13):
+    result.append(random.randint(1,1000))
+print(sorted(result))
+
+plt.boxplot(result)
+plt.show()
+
+import numpy as np
+result=np.array(result)
+print("1/4: "+str(np.percentile(result,25)))
+print("2/4: "+str(np.percentile(result,50)))
+print("3/4: "+str(np.percentile(result,75)))
