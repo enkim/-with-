@@ -1,0 +1,22 @@
+import csv
+import matplotlib.pyplot as plt
+
+f=open('seoul.csv',encoding='cp949')
+data=csv.reader(f)
+next(data)
+
+aug=[]
+jan=[]
+
+for row in data:
+    month=row[0].split('.')[1] 
+    if row[-1]!='': 
+        if month=='8':
+            aug.append(float(row[-1]))
+        if month =='1':
+            jan.append(float(row[-1]))
+            
+plt.hist(aug,bins=100,color='r',label='Aug')
+plt.hist(jan,bins=100,color='b',label='Jan')
+plt.legend()
+plt.show()
