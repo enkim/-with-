@@ -20,3 +20,5 @@ for row in data:
 plt.plot(high,'hotpink')
 plt.plot(low,'skyblue')
 plt.show()
+
+# matplotlib color https://matplotlib.org/gallery/color/named_colors.html#sphx-glr-gallery-color-named-colors-py 
