@@ -1,0 +1,20 @@
+import matplotlib.pyplot as plt
+import csv
+
+f=open('seoul.csv',encoding='cp949')
+data=csv.reader(f)
+next(data)
+
+day=[]
+for i in range(31): 
+    day.append([]) # day 내 리스트 31개 생성
+    
+for row in data:
+    if row[-1] != '':
+        if row[0].split('.')[1]=='8':
+            day[int(row[0].split('.')[2])-1].append(float(row[-1]))         
+plt.style.use('ggplot') # 그래프 스타일 지정
+plt.figure(figsize=(10,5),dpi=300) #그래프 크기 수정 
+plt.boxplot(day,showfliers=False) #아웃라이어 값 생략 
+
+plt.show()
