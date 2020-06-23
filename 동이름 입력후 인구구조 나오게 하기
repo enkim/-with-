@@ -1,0 +1,25 @@
+import csv
+import matplotlib.pyplot as plt
+from matplotlib import font_manager
+
+for font in font_manager.fontManager.ttflist:
+    if 'Nanum' in font.name:
+        print(font.name, font.fname)
+        
+        
+f=open('age.csv',encoding='cp949')
+data=csv.reader(f)
+dong=input('동이름을 입력하세요:')
+
+result=[]
+for row in data:
+    if dong in row[0]: #신도림이 포함된 행정구역 찾기
+        for i in row[3:]: #0세부터 끝(100세 이상)까지 모든 연령에 대하여 반복하기
+            result.append(int(i))  #해당 연령의 인구수 리스트에 순서대로 저장하기 
+print(result) #0세부터 100세 이상까지의 인구수 출력하기
+
+plt.style.use('ggplot') #격자무늬 스타일 지정
+plt.rc('font',family='AppleMyungjo')
+plt.plot(result)
+plt.title(dong+'지역의 인구구조')
+plt.show()
