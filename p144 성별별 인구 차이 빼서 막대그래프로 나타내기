@@ -10,6 +10,8 @@ for row in data:
         break
         
 import matplotlib.pyplot as plt
-plt.bar(range(101),result)
+plt.bar(range(101),result,label='남자에서 여자를 뺀 값')
 plt.rcParams['axes.unicode_minus']=False #그래프에서 음수가 깨지지 않게 함. 
+plt.legend(loc='upper left')
+
 plt.show()
