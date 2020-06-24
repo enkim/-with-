@@ -23,3 +23,23 @@ plt.title(dong+'지역의 남녀 성별 인구 분포')
 plt.figure(figsize=(10,5),dpi=300)
 plt.show()
 
+#########
+#제주특별자치도처럼 반복되는 이름에서 첫번째 나오는 항목만 나타나게 하기
+import csv
+f=open('gender.csv',encoding='cp949')
+data=csv.reader(f)
+m=[]
+f=[]
+
+dong=input('동이름을 입력하세요:')
+
+for row in data:
+    if dong in row[0]:
+        for i in row[3:104]:
+            m.append(-int(i.replace(',','')))
+        for i in row[106:]:
+            f.append(int(i.replace(',','')))
+        break
+
+print(len(m),len(f))
+#########
