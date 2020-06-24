@@ -15,7 +15,7 @@ result=[]
 for row in data:
     if dong in row[0]: #신도림이 포함된 행정구역 찾기
         for i in row[3:]: #0세부터 끝(100세 이상)까지 모든 연령에 대하여 반복하기
-            result.append(int(i))  #해당 연령의 인구수 리스트에 순서대로 저장하기 
+            result.append(int(i.replace(',','')))  #해당 연령의 인구수 리스트에 순서대로 저장하기 
 print(result) #0세부터 100세 이상까지의 인구수 출력하기
 
 plt.style.use('ggplot') #격자무늬 스타일 지정
