@@ -1,0 +1,11 @@
+import matplotlib.pyplot as plt
+import random
+x=[]
+y=[]
+size=[]
+for i in range(100):
+    x.append(random.randint(50,100))
+    y.append(random.randint(50,100))
+    size.append(random.randint(10,100))
+plt.scatter(x,y,s=size,c=size,cmap='jet',alpha=0.8) # alpha 값은 0에 가까울 수록 투명, 1에 가까울 수록 불투명함, c속성은 표현하고 싶은 색상의 수임 
+plt.show
