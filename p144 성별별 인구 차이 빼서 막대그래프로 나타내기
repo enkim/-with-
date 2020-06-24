@@ -1,0 +1,15 @@
+import csv
+f=open('gender.csv',encoding='cp949')
+data=csv.reader(f)
+result=[]
+name=input('궁금한 동네를 입력해주세요:')
+for row in data:
+    if name in row[0]:
+        for i in range(3,104):
+            result.append(int(row[i].replace(',',''))-int(row[i+103].replace(',','')))
+        break
+        
+import matplotlib.pyplot as plt
+plt.bar(range(101),result)
+plt.rcParams['axes.unicode_minus']=False #그래프에서 음수가 깨지지 않게 함. 
+plt.show()
