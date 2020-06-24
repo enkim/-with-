@@ -1,0 +1,21 @@
+import csv
+f=open('gender.csv',encoding='cp949')
+data=csv.reader(f)
+m=[]
+f=[]
+
+for row in data:
+    if '신도림' in row[0]:
+        for i in row[3:104]:
+            m.append(-int(i))
+        for i in row[106:]:
+            f.append(int(i))
+            
+import matplotlib.pyplot as plt
+plt.barh(range(101),m)
+plt.barh(range(101),f)
+
+plt.rc('font',family='AppleMyungjo')
+plt.rcParams['axes.unicode_minus']=False
+plt.show()
+
