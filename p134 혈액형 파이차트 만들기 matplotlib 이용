@@ -1,0 +1,9 @@
+import matplotlib.pyplot as plt
+plt.rc('font',family='AppleMyungjo')
+size=([2441,2312,1031,1233])
+label=['A형','B형','AB형','O형'] #레이블
+color=['darkmagenta','deeppink','hotpink','pink']
+plt.axis('equal')
+plt.pie(size,labels=label,autopct='%.1f%%',colors=color,explode=(0,0,0.1,0))
+plt.legend()
+plt.show()
