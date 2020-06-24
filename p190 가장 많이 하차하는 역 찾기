@@ -18,9 +18,4 @@ for row in data:
         mx_station=row[3]+'('+row[1]+')'
 print(mx_station,mx)
 
-import matplotlib.pyplot as plt
-result.sort() #오름차순으로 정렬 
-plt.bar(range(len(result)),result)
-plt.show()
-
 #map 함수는 일괄적으로 데이터에 특정 함수를 적용할 수 있음.  첫번째 인자에는 적용할 함수 이름, 두번째 인자는 데이터 
