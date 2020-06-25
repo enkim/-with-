@@ -1,0 +1,27 @@
+import csv
+import matplotlib.pyplot as plt
+
+f=open('subwaytime.csv')
+data=csv.reader(f)
+next(data)
+next(data)
+mx=[0]*24
+mx_station=['']*24
+for row in data:
+    for i in range(4,49):
+        row[i]=row[i].replace(',','')
+    row[4:]=map(int,row[4:])
+    for j in range(24):
+        a=row[j*2+4] 
+        if a>mx[j]:
+            mx[j]=a
+            mx_station[j]=row[3]
+            mx_station[j]=row[3]+'('+str(j+4)+'시)'
+print(mx_station)
+print(mx)
+
+import matplotlib.pyplot as plt
+plt.rc('font',family='AppleMyungjo')
+plt.bar(range(24),mx,color='b') 
+plt.xticks(range(24),mx_station,rotation=90)
+plt.show()
