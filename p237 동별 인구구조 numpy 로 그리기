@@ -1,0 +1,21 @@
+import numpy as np
+import csv
+f=open('age.csv',encoding='cp949')
+data=csv.reader(f)
+next(data)
+name=input('인구구조가 알고 싶은 이름(읍면동 단위)을 입력해주세요:')
+for row in data:
+    for i in row[1:]:
+        i=i.replace(',','')
+        
+for row in data:
+    if name in row[0]:
+        home=np.array(row[3:],dtype=int)/int(row[2])
+        
+print(home)
+
+import matplotlib.pyplot as plt
+plt.rc('font',family='AppleMyungjo')
+plt.title(name+'지역의 인구 구조')
+plt.plot(home)
+plt.show()
